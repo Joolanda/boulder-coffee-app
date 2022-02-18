@@ -1,0 +1,133 @@
+{% include "header.html" %}
+
+<main>
+    <!-- ======= Hero Section ======= -->
+    <section id="hero">
+        <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+            <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+            <div class="carousel-inner" role="listbox">
+
+                <!-- Slide 1 -->
+                <div class="carousel-item active" style="background-image: url(static/assets/img/slide/slide-1.jpg)">
+                    <div class="carousel-container">
+                        <div class="container">
+                            <h2 class="animated fadeInDown">Welcome to Coffee & Climbers</h2>
+                            <p class="animated fadeInUp">Want to work in a pleasant atmosphere with great coffee?</p>
+                            <a href="#coffee-shops" class="btn-get-started animated fadeInUp scrollto">See All</a>
+                            <a href="/add" class="btn-get-started">Add Bistro</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item" style="background-image: url(static/assets/img/slide/slide-2.jpg)">
+                                    <div class="carousel-container">
+                        <div class="container">
+                            <h2 class="animated fadeInDown">Start your workday with expresso and climbing?</h2>
+                            <p class="animated fadeInUp">Then you've come to the right place! </p>
+                            <a href="#coffee-shops" class="btn-get-started animated fadeInUp scrollto">See All</a>
+                            <a href="/add" class="btn-get-started">Add Bistro</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item" style="background-image: url(static/assets/img/slide/slide-3.jpg)">
+                                    <div class="carousel-container">
+                        <div class="container">
+                            <h2 class="animated fadeInDown">Latte Macchiato after a good boulder session?</h2>
+                            <p class="animated fadeInUp">Checkout my collection of boulder- and climbinghall bistro's with good expresso, latte and more.</p>
+                            <a href="#coffee-shops" class="btn-get-started animated fadeInUp scrollto">See All</a>
+                            <a href="/add" class="btn-get-started">Add Bistro</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+            </a>
+
+            <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+            </a>
+
+        </div>
+    </section><!-- End Hero -->
+    <p><i> Photo's by: @Kevin Schmid @Tiago Rosado and @Thom Holmes, see <a href="https://unsplash.com/">unsplash.com</a> for more.</i></p>
+
+
+    <!-- ======= Climbing Hall Bistros Section ======= -->
+
+    <section id="coffee-shops" class="coffee-shops">
+
+        <div class="section-title">
+            <h2>Boulder & Bistro's</h2>
+        </div>
+
+        {% for row in all_bistros %}
+        <div class="row justify-content-center">
+            {% for bistro in row %}
+
+            <div class="col-lg-4 d-flex justify-content-center mt-5 align-items-stretch">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ bistro.img_url }}" style="height:215px" ; class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ bistro.name }}</h5>
+                        <div class="row">
+                            <div class="col-lg-6 mb-3">
+                                <h6 class="card-subtitle text-muted mb-1"> {{ bistro.location }} </h6>
+                                <a href="{{ bistro.map_url }}" class="card-link"> Google Maps </a>
+                                <p class="card-text mt-2">
+                                    <i class="fas fa-coffee mr-3" aria-hidden="true"></i> {{ bistro.coffee_price }}
+                                    <br>
+                                    <i class="fas fa-tree mr-3" aria-hidden="true"></i> {{ bistro.seats}}
+                                </p>
+                            </div>
+                            <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                                <a href="{{ url_for('delete', id=bistro.id) }}" class="btn btn-primary">Delete</a>
+                            </div>
+                        </div>
+                        <p class="card-text items">
+                            {% if bistro.has_wifi == 1%}
+                            <i class="fas fa-wifi" aria-hidden="true"></i>
+                            {% endif %}
+                            {% if bistro.has_sockets == 1%}
+                            <i class="fas fa-plug" style="width: 1.25rem; text-align:center" aria-hidden="true"></i>
+                            {% endif %}
+                            {% if bistro.has_toilet == 1%}
+                            <i class="fas fa-shower" aria-hidden="true"></i>
+                            {% endif %}
+                            {% if bistro.can_take_calls == 1%}
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </section>-->
+</main><!-- End #main -->
+
+{% include "footer.html" %}
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CoffeeClimbers API</title>
+</head>
+<body>
+    <h1>Welcome to the Coffee & Climbing API</h1>
+    <a href="https://documenter.getpostman.com/view/10997891/UVkiSyGP">Read the Documentation</a>
+</body>
+</html>-->
