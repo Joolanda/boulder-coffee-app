@@ -126,14 +126,13 @@ def post_new_bistro():
 
 
 ## HTTP DELETE - Delete Record
-@app.route("/delete/", methods=["DELETE", "GET"])
+@app.route("/delete", methods=["DELETE", "GET"])
 def delete():
-    api_key = request.args.get("api-key")
-    if api_key == "TopSecretAPIKey":
-        bistro_id = request.args.get("id")
-        bistro = Bistro.query.get(bistro_id)
-        db.session.delete(bistro)
-        db.session.commit()
+    bistro_id = request.args.get("id")
+    bistro = Bistro.query.get(bistro_id)
+    db.session.delete(bistro)
+    db.session.commit()
+
     return redirect("/#coffee-shops")
 
 
