@@ -2,7 +2,7 @@
 A website build with Flask and Bootstrap that lists climbing-and boulderhalls with wifi and good coffee.
 
 ## Description
-The goal for this project was to create a professional portfolio project after succesfully completed my 100 Days of Python Pro Bootcamp. First, I built the back-end. A REST API. The climber API. For testing my endpoints, I used Postman. 
+The goal for this project was to create a professional portfolio project after succesfully completed my 100 Days of Python Pro Bootcamp. First, I built the back-end. My climber REST API. For testing my endpoints, I used Postman. 
 Read the Documentation here: https://documenter.getpostman.com/view/10997891/UVkiSyGP
 
 Secondly I developed my front end, a workable website that uses this data, localhosting with wtforms and csv-file. 
